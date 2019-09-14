@@ -1,13 +1,7 @@
-//local developable files
-#include "ofxDevelopableMesh.h"
-#include "ofxDevelopableTypes.h"
-
-//other external dependencies
+//#include "ofxDevelopableMesh.h"
 #include "ofxEigen.h"
 #include "ofxLibigl.h"
 
-
-using namespace Eigen;
 #include <developableflow/compute_cut.h>
 #include <developableflow/curvature_energy.h>
 #include <developableflow/energy_selector.h>
@@ -22,11 +16,14 @@ using namespace Eigen;
 #include <developableflow/old_max_hinge_energy.h>
 #include <developableflow/timestep.h>
 
-
-
 #include <tools/triangle_cosdihedral_angle.h>
 #include <tools/qc_color.h>
 #include <tools/write_energy.h>
 #include <tools/write_cut_meshes.h>
 #include <tools/numerical_gradient.h>
 #include <tools/perturb.h>
+
+#include "ofxDevelopableMesh.h"
+#include "ofxDevelopableTypes.h"
+#include "ofxDevelopableTimestep.h"
+#include "ofxDevelopableConfig.h"

@@ -1,0 +1,3 @@
+ofxDevelopableFlow
+ofxEigen
+ofxLibigl

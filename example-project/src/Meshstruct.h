@@ -1,12 +1,5 @@
 /*
  
- //
- //  ofxDevelopableMesh.h
- //  example-project
- //
- //  Created by kkshmz on 9/8/19.
- //
- 
  2018, Oded Stein, Eitan Grinspun and Keenan Crane
  
  This file is part of the code for "Developability of Triangle Meshes".
@@ -30,18 +23,11 @@
 
 #ifndef DEVELOPABLEFLOW_MESHSTRUCT_H
 #define DEVELOPABLEFLOW_MESHSTRUCT_H
-
-//#include <vector>
+#include "types.h"
+#include <vector>
 //#include <list>
 
-// #include <igl/all_edges.h>
-// #include <igl/triangle_triangle_adjacency.h>
-// #include <igl/vertex_triangle_adjacency.h>
-// #include <igl/unique_simplices.h>
-// #include <igl/is_border_vertex.h>
-#include "ofxLibigl.h"
-#include "ofMain.h"
-#include "ofxDevelopableTypes.h"
+#include <ofxLibigl.h>
 using namespace Eigen;
 namespace Developables {
     
@@ -103,30 +89,12 @@ namespace Developables {
         
         Mesh(const OMatrixXs& iV, const OMatrixXi& iF)
         {
-            //typedef Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> OMatrixXs;
-            //  OMatrixXs V;
             V = iV;
             F = iF;
             origV = iV;
             origF = iF;
             update();
         }
-        
-//        Mesh(const ofMesh m){
-//            Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic> tempV;
-//
-//            for (int i=0; i<m.getVertices().size();i++){
-//                tempV(i) = m.getVertices()[i];
-//            }
-////            V = tempV;
-////            F =Eigen::Map<Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> >( m.getFace().data());const std::vector<tvec3<float, glm::packed_highp> >' to 'Eigen::Map<Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> >'
-//
-////            V = m.getVertices();
-////            F = m.getFace();
-////            origV = m.getVertices();
-////            origF = m.getFace();
-//
-//        }
     };
     
 }
