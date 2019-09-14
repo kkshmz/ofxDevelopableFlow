@@ -31,16 +31,7 @@
 #ifndef DEVELOPABLEFLOW_MESHSTRUCT_H
 #define DEVELOPABLEFLOW_MESHSTRUCT_H
 
-//#include <vector>
-//#include <list>
-
-// #include <igl/all_edges.h>
-// #include <igl/triangle_triangle_adjacency.h>
-// #include <igl/vertex_triangle_adjacency.h>
-// #include <igl/unique_simplices.h>
-// #include <igl/is_border_vertex.h>
 #include "ofxLibigl.h"
-#include "ofMain.h"
 #include "ofxDevelopableTypes.h"
 using namespace Eigen;
 namespace Developables {
@@ -97,6 +88,25 @@ namespace Developables {
             //        isB[i]=true;
             //}
         }
+//        void draw(ofPolyRenderMode renderType){
+//#ifndef TARGET_OPENGLES
+//            mesh.vbo.drawElements(GL_TRIANGLES,mesh.indices.size());
+//#else
+//            switch(renderType){
+//                case OF_MESH_FILL:
+//                    mesh.vbo.drawElements(GL_TRIANGLES,mesh.indices.size());
+//                    break;
+//                case OF_MESH_WIREFRAME:
+//                    //note this won't look the same as on non ES renderers.
+//                    //there is no easy way to convert GL_TRIANGLES to outlines for each triangle
+//                    mesh.vbo.drawElements(GL_LINES,mesh.indices.size());
+//                    break;
+//                case OF_MESH_POINTS:
+//                    mesh.vbo.drawElements(GL_POINTS,mesh.indices.size());
+//                    break;
+//
+//            }
+//        }
         
         Mesh()
         {}
@@ -111,22 +121,6 @@ namespace Developables {
             origF = iF;
             update();
         }
-        
-//        Mesh(const ofMesh m){
-//            Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic> tempV;
-//
-//            for (int i=0; i<m.getVertices().size();i++){
-//                tempV(i) = m.getVertices()[i];
-//            }
-////            V = tempV;
-////            F =Eigen::Map<Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> >( m.getFace().data());const std::vector<tvec3<float, glm::packed_highp> >' to 'Eigen::Map<Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> >'
-//
-////            V = m.getVertices();
-////            F = m.getFace();
-////            origV = m.getVertices();
-////            origF = m.getFace();
-//
-//        }
     };
     
 }

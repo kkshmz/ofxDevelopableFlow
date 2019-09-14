@@ -11,8 +11,9 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-
-		void keyPressed(int key);
+    
+        void keyPressed(int key);
+		void keyPressed(int key, int scancode, int action, int modifier);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
 		void mouseDragged(int x, int y, int button);
@@ -23,6 +24,10 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+    
+    vector<Eigen::VectorXd> lines; //plot lines
+    vector<string> titles; //plot titles
+    
     ofMesh mesh;
 		
 };

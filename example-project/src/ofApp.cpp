@@ -2,18 +2,22 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-//    mesh.load("penguin.obj");
+// init parallel computing
+    Eigen::initParallel();
+// init precision type of eigen
+    types_startup();
     
-//    string path;
-//    path = "/data/penguin.obj";
-//    ofToDataPath("penguin.obj");
-//    OMatrixXs V;
-//    Eigen::MatrixXi F;
-//    Developables::Mesh m;
-//    m = Developables::Mesh(mesh);
-   // m = Developables::Mesh(mesh.getVerticies, mesh.getUniqueFaces());
-//    igl::read_triangle_mesh(path, V, F);
-//    m = Developables::Mesh(V, F);
+    //read in the mesh
+    OMatrixXs V;
+    OMatrixXi F;
+    Developables::Mesh m;
+    std::string path;
+    path = "/Users/kkshmzmbp/Documents/of_v0.10.0_osx_release/addons/ofxDevelopableFlow/example-project/bin/data/sphere.obj";
+    
+    igl::read_triangle_mesh(path, V, F);
+    m = Developables::Mesh(V,F);
+    
+    
 }
 
 //--------------------------------------------------------------

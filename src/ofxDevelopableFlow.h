@@ -1,6 +1,6 @@
 //#include "ofxDevelopableMesh.h"
-#include "ofxEigen.h"
-#include "ofxLibigl.h"
+//#include "ofxEigen.h"
+//#include "ofxLibigl.h"
 
 #include <developableflow/compute_cut.h>
 #include <developableflow/curvature_energy.h>
@@ -22,6 +22,14 @@
 #include <tools/write_cut_meshes.h>
 #include <tools/numerical_gradient.h>
 #include <tools/perturb.h>
+
+#include <viewer/OViewer.h>
+#include <viewer/OViewer.cpp>
+#include <viewer/OViewer_getters_setters.cxx>
+
+//#include <viewer/Oviewer_graphics.cxx>
+
+
 
 #include "ofxDevelopableMesh.h"
 #include "ofxDevelopableTypes.h"
