@@ -3,21 +3,34 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 // init parallel computing
-    Eigen::initParallel();
-// init precision type of eigen
-    types_startup();
-    
+//    Eigen::initParallel();
+//// init precision type of eigen
+//    types_startup();
+//    
     //read in the mesh
-    OMatrixXs V;
-    OMatrixXi F;
-    Developables::Mesh m;
-    std::string path;
+ 
     path = "/Users/kkshmzmbp/Documents/of_v0.10.0_osx_release/addons/ofxDevelopableFlow/example-project/bin/data/sphere.obj";
-    
+//
     igl::read_triangle_mesh(path, V, F);
     m = Developables::Mesh(V,F);
-    
-    
+    ofTranslate(ofGetWidth()/2,ofGetHeight()/2);
+
+    ofBackground(255);
+    ofSetColor(0);
+//    viewer = Developables::Oviewer;
+//    
+//    viewer.set_mesh
+    viewer.setmeshCast(m.V,m.F,m.E);
+
+//    viewer.setmeshcast(doublecast(m.V), intcast(m.F), intcast(m.E));
+//    viewer.set_plotting_enabled(true);
+//    viewer.set_plots(titles, lines);
+//    viewer.set_face_based_coloring(true);
+//    viewer.predraw_callback = predraw_callback;
+//    viewer.keyboard_callback = keyboard_callback;
+//    
+//    viewer.launch();
+//    viewer.draw();
 }
 
 //--------------------------------------------------------------
@@ -27,7 +40,12 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+//    camera.begin();
+    
+    viewer.draw();
+//    camera.end();
 //    mesh.drawFaces();
+//    viewer.draw();
 }
 
 //--------------------------------------------------------------

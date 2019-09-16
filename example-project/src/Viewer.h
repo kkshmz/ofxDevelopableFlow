@@ -1,3 +1,13 @@
+//
+//  Viewer.h
+//  example-project
+//
+//  Created by kkshmzMBP on 9/16/19.
+//
+
+#ifndef Viewer_h
+#define Viewer_h
+
 /*
  
  2018, Oded Stein, Eitan Grinspun and Keenan Crane
@@ -24,9 +34,9 @@
 #ifndef IGL_OVIEWER_H
 #define IGL_OVIEWER_H
 
-// #ifndef IGL_OPENGL_4
-// #define IGL_OPENGL_4
-// #endif
+#ifndef IGL_OPENGL_4
+#define IGL_OPENGL_4
+#endif
 
 
 #ifdef _WIN32
@@ -38,25 +48,27 @@
 #include <chrono>
 #include <thread>
 
-// #ifdef __APPLE__
-// #   include <OpenGL/gl3.h>
-// #   define __gl_h_ /* Prevent inclusion of the old gl.h */
-// #else
-// #   include <GL/gl.h>
-// #endif
+#ifdef __APPLE__
+#   include <OpenGL/gl3.h>
+#   define __gl_h_ /* Prevent inclusion of the old gl.h */
+#else
+#   include <GL/gl.h>
+#endif
 
 #include <igl/get_seconds.h>
+//#include "ofxEigen.h"
 #include <Eigen/Core>
 #include <Eigen/Geometry>
-// #define GLFW_INCLUDE_GLU
-// #include <GLFW/glfw3.h>
+//#define GLFW_INCLUDE_GLU
+//#include <GLFW/glfw3.h>
 
 
 #include <igl/igl_inline.h>
 #include <Eigen/Core>
 #include <vector>
+#include "ofxLibigl.h"
 
-namespace igl
+namespace Developables
 {
     
     class OViewer
@@ -206,7 +218,7 @@ namespace igl
         
         
     private:
-        GLFWwindow* window;
+//        GLFWwindow* window;
         
         double start_t, last_t;
         
@@ -306,8 +318,11 @@ namespace igl
 }
 
 
-// #ifndef IGL_STATIC_LIBRARY
-// #  include "OViewer.cpp"
-// #endif
+//#ifndef IGL_STATIC_LIBRARY
+//#  include "Viewer.cpp"
+//#endif
 
 #endif
+
+
+#endif /* Viewer_h */

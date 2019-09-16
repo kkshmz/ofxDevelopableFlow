@@ -29,7 +29,7 @@
 #include <thread>
 #include <iostream>
 
-#include <igl/opengl/gl.h>
+// #include <igl/opengl/gl.h>
 #include <igl/quat_to_mat.h>
 #include <igl/barycenter.h>
 #include <igl/frustum.h>
@@ -44,7 +44,7 @@
 #include <igl/per_face_normals.h>
 #include <igl/per_vertex_normals.h>
 
-#include "shaders.txt"
+// #include "shaders.txt"
 
 
 namespace igl {
@@ -117,6 +117,6 @@ namespace igl {
     
     //GRAPHICS
     
-    #include "OViewer_graphics.cxx"
+    // #include "OViewer_graphics.cxx"
     
 }

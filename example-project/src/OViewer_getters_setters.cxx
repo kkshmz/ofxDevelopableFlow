@@ -22,15 +22,15 @@
 
 
 //All getters/setters in the OVIewer
-
-IGL_INLINE void OViewer::set_mesh(const Eigen::MatrixXd& V, const Eigen::MatrixXi& F)
+using namespace Developables;
+IGL_INLINE void OViewer::orig_set_mesh(const Eigen::MatrixXd& V, const Eigen::MatrixXi& F)
 {
     Eigen::MatrixXi E;
     igl::edges(F, E);
     set_mesh(V, F, E);
 }
 
-IGL_INLINE void OViewer::set_mesh(const Eigen::MatrixXd& V, const Eigen::MatrixXi& F, const Eigen::MatrixXi& E)
+IGL_INLINE void OViewer::orig_set_mesh(const Eigen::MatrixXd& V, const Eigen::MatrixXi& F, const Eigen::MatrixXi& E)
 {
     assert(V.cols()==3 && "Every vertex must have 3 coordinates.\n");
     m_V = V.cast<float>();
@@ -56,8 +56,8 @@ IGL_INLINE void OViewer::set_mesh(const Eigen::MatrixXd& V, const Eigen::MatrixX
     m_F = F.cast<GLuint>();
     m_F_mod = m_F;
     
-    per_face_normals(m_V, m_F_mod, m_facedVN_mod);
-    per_vertex_normals(m_V, m_F_mod, m_facedVN_mod, m_VN);
+    igl::per_face_normals(m_V, m_F_mod, m_facedVN_mod);
+    igl::per_vertex_normals(m_V, m_F_mod, m_facedVN_mod, m_VN);
     m_VN_mod = m_VN;
     
     assert(E.cols()==2 && "Every edge must have 2 vertices.\n");
@@ -66,14 +66,14 @@ IGL_INLINE void OViewer::set_mesh(const Eigen::MatrixXd& V, const Eigen::MatrixX
     
     meshSet = true;
     
-    // if(launched) {
-    //     // update_mesh_data(true);
-    //     if(defaultColorUsed) {
-    //         set_colors(defaultColor);
-    //         defaultColorUsed = true;
-    //     }
-    //     linetranspEnabled = false;
-    // }
+    if(launched) {
+        update_mesh_data(true);
+        if(defaultColorUsed) {
+            set_colors(defaultColor);
+            defaultColorUsed = true;
+        }
+        linetranspEnabled = false;
+    }
 }
 
 
@@ -106,8 +106,8 @@ IGL_INLINE void OViewer::set_colors(const Eigen::MatrixXd& color_amb, const Eige
     else if(color_amb.rows() == m_V.rows())
         faceBasedColoring = false;
     
-    // if(colorsBuffersGenerated)
-    //     update_colors();
+    if(colorsBuffersGenerated)
+        update_colors();
     
     defaultColorUsed = false;
 }
@@ -145,7 +145,7 @@ IGL_INLINE const Eigen::Matrix<float, Eigen::Dynamic, 3, Eigen::RowMajor>& OView
     return m_V_mod;
 }
 
-IGL_INLINE void OViewer::modify_V(const Eigen::MatrixXd& V)
+IGL_INLINE void OViewer::orig_modify_V(const Eigen::MatrixXd& V)
 {
     m_V_mod = V.cast<float>();
     per_face_normals(m_V_mod, m_F_mod, m_facedVN_mod);

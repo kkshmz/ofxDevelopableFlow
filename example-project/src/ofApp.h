@@ -1,9 +1,13 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxDevelopableFlow.h"
 #include "ofxEigen.h"
 #include "ofxLibigl.h"
+#include "Mesh.h"
+#include "Types.h"
+//#include "Viewer.h"
+#include "ofxDevelopableFlow.h"
+#include "ofxDevelopableViewer.h"
 
 class ofApp : public ofBaseApp{
 
@@ -24,10 +28,26 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+//    
+//    Eigen::MatrixXi intcast(const Developables::OMatrixXi& A){
+//        return A;
+//    }
+//    
+//    
+//    Eigen::MatrixXd doublecast(const Developables::OMatrixXs& A)
+//    {
+//        return A;
+//    }
     
-    vector<Eigen::VectorXd> lines; //plot lines
-    vector<string> titles; //plot titles
-    
-    ofMesh mesh;
+    ofEasyCam camera;
+    Developables::OMatrixXs V;
+    Developables::OMatrixXi F;
+    Developables::Mesh m;
+    std::string path;
+    ofxDevelopableViewer viewer;
+//    vector<Eigen::VectorXd> lines; //plot lines
+//    vector<string> titles; //plot titles
+//    
+//    ofMesh mesh;
 		
 };
